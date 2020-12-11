@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CapstoneProject", "CapstoneProject\CapstoneProject.vcxproj", "{EA05458D-0D0A-4664-A4F1-DD09BAA75020}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Debug|x64.ActiveCfg = Debug|x64
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Debug|x64.Build.0 = Debug|x64
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Debug|x86.Build.0 = Debug|Win32
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Release|x64.ActiveCfg = Release|x64
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Release|x64.Build.0 = Release|x64
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Release|x86.ActiveCfg = Release|Win32
+		{EA05458D-0D0A-4664-A4F1-DD09BAA75020}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46987782-4C2A-44B9-A92C-F4D5F71D9BF9}
+	EndGlobalSection
+EndGlobal
