@@ -5,6 +5,7 @@ using namespace std;
 
 class Product
 {
+protected:
 	string proCode;		//Mã sản phẩm
 	string proName;		//Tên sản phẩm
 	double price;		//Giá

@@ -1,6 +1,6 @@
 ﻿#include"Product.h"
 #include"Cart.h"
-#include"Custemer.h"
+#include"Customer.h"
 
 #include<vector>
 #include<fstream>
@@ -74,13 +74,13 @@ void display(const vector <Product>& l)
 			cout << setw(15) << left << (*i).getPrice() << "| " << setw(7) << left << (*i).getUnit() << "|" << endl;
 		}
 		cout << "\t\t+----------------+------------------------------------------+-----------------+--------+" << endl;
-			    //   123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
-				//   0        1         2         3         4         5         6         7         8         9         10        11        12
+		//   123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+		//   0        1         2         3         4         5         6         7         8         9         10        11        12
 	}
 }
 bool addCart(vector <Cart>& t, const vector <Product>& l, const string& proCode, const int& quantity)
 {
-	for (int i = 0; i < t.size(); i ++)
+	for (int i = 0; i < t.size(); i++)
 		if (t[i].getProCode() == proCode)
 		{
 			t[i].setQuantity(t[i].getQuantity() + quantity);
