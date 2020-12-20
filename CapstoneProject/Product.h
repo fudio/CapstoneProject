@@ -7,7 +7,7 @@ class Product
 {
 	string proCode;		//Mã sản phẩm
 	string proName;		//Tên sản phẩm
-	unsigned int price;		//Giá
+	double price;		//Giá
 	string unit;		//Đơn vị tính của sản phẩm
 public:
 	Product(string proCode = "", string proName = "", double price = 0, string unit = "");
