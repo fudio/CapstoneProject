@@ -9,11 +9,11 @@ Bill::Bill(Customer cus, vector<Cart> lP) :deliveryDate(), receivedDate()
 	time_t now = time(0);
 	localtime_s(&buf, &now);
 	deliveryDate.setD(buf.tm_mday);
-	deliveryDate.setM(buf.tm_mon);
-	deliveryDate.setY(buf.tm_year);
+	deliveryDate.setM(buf.tm_mon + 1);
+	deliveryDate.setY(buf.tm_year + 1900);
 	now += 604800;
 	localtime_s(&buf, &now);
 	receivedDate.setD(buf.tm_mday);
-	receivedDate.setM(buf.tm_mon);
-	receivedDate.setY(buf.tm_year);
+	receivedDate.setM(buf.tm_mon + 1);
+	receivedDate.setY(buf.tm_year + 1900);
 }
