@@ -3,15 +3,21 @@
 #include"Date.h"
 #include"Cart.h"
 #include<vector>
+#include<ctime>
 
-class Bill :public Customer, public Date
+class Bill :public Date
 {
 protected:
-	Customer customer;
+	time_t billCode;
 	vector<Cart> listProduct;
-	Date deliveryDate;
+	Date orderDate;
 	Date receivedDate;
 public:
-	Bill(Customer cus, vector<Cart> lP);
+	Bill(vector<Cart> lP);
+	vector<Cart> getCart() const;
+	double getTotal() const;
+	time_t getBillCode() const;
+	Date getOrderDate() const;
+	Date getReceivedDate() const;
 };
 

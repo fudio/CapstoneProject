@@ -25,5 +25,6 @@ public:
 	void setSex(string sex);
 	void setPN(string pN);
 	void setAdd(string add);
+	friend ostream& operator<<(ostream& out, const Customer& c);
 };
 

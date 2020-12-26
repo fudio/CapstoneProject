@@ -1,19 +1,46 @@
 #include "Bill.h"
-#include<ctime>
 
-Bill::Bill(Customer cus, vector<Cart> lP) :deliveryDate(), receivedDate()
+Bill::Bill(vector<Cart> lP) :orderDate(), receivedDate()
 {
-	customer = cus;
 	listProduct = lP;
 	struct tm buf;
 	time_t now = time(0);
+	billCode = now;
 	localtime_s(&buf, &now);
-	deliveryDate.setD(buf.tm_mday);
-	deliveryDate.setM(buf.tm_mon + 1);
-	deliveryDate.setY(buf.tm_year + 1900);
+	orderDate.setD(buf.tm_mday);
+	orderDate.setM(buf.tm_mon + 1);
+	orderDate.setY(buf.tm_year + 1900);
 	now += 604800;
 	localtime_s(&buf, &now);
 	receivedDate.setD(buf.tm_mday);
 	receivedDate.setM(buf.tm_mon + 1);
 	receivedDate.setY(buf.tm_year + 1900);
+}
+
+vector<Cart> Bill::getCart() const
+{
+	return this->listProduct;
+}
+
+double Bill::getTotal() const
+{
+	double total = 0;
+	for (vector <Cart>::const_iterator i = listProduct.begin(); i != listProduct.end(); i.operator++())
+		total += (*i).getPrice() * (*i).getQuantity();
+	return total;
+}
+
+time_t Bill::getBillCode() const
+{
+	return billCode;
+}
+
+Date Bill::getOrderDate() const
+{
+	return orderDate;
+}
+
+Date Bill::getReceivedDate() const
+{
+	return receivedDate;
 }
