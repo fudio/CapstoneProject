@@ -150,6 +150,7 @@
     <ClCompile Include="Cart.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>

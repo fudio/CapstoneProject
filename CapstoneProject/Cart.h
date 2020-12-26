@@ -4,9 +4,10 @@
 class Cart :public Product
 {
 	Product item;
-	int quantity;
+	long int quantity;
 public:
 	Cart(Product, int quantity = 0);
-	int getQuantity() const;
-	void setQuantity(const int&);
+	long int getQuantity() const;
+	Product getItem() const;
+	void setQuantity(const long int&);
 };
