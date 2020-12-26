@@ -22,4 +22,3 @@ public:
 	void setUnit(const string&);
 	friend ostream& operator<<(ostream&, const Product&);
 };
-
