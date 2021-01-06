@@ -19,7 +19,7 @@ public:
 	string getSex() const;
 	string getPN() const;
 	string getAdd() const;
-	bool getCheck() const;
+	bool getCheck();
 	void setFN(string fN);
 	void setLN(string lN);
 	void setSex(string sex);

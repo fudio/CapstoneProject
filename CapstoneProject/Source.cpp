@@ -71,7 +71,7 @@ void displayProduct(const vector <Product>& l)
 		//   0        1         2         3         4         5         6         7         8         9         10        11        12
 	}
 }
-bool addCart(vector <Cart> t, const vector <Product>& l, const string& proCode, const int& quantity)
+bool addCart(vector <Cart>& t, const vector <Product>& l, const string& proCode, const int& quantity)
 {
 	size_t size = t.size();
 	for (int i = 0; i < size; i++)
@@ -89,11 +89,13 @@ bool addCart(vector <Cart> t, const vector <Product>& l, const string& proCode, 
 		}
 	return 0;
 }
-void addCartMenu(vector <Cart> t, const vector <Product>& l)
+void addCartMenu(vector <Cart>& t, const vector <Product>& l)
 {
 	int quantity;
 	string proCode;
 	cout << "ENTER PRODUCT CODE ADD TO CART: ";
+	fflush(stdin);
+	cin.ignore();
 	getline(cin, proCode);
 	cout << "ENTER PRODUCT QUANTITY: ";
 	cin >> quantity;
@@ -101,6 +103,7 @@ void addCartMenu(vector <Cart> t, const vector <Product>& l)
 	{
 		if (!addCart(t, l, proCode, quantity))
 		{
+			system("cls");
 			cout << "INVALID PRODUCT CODE!!!" << endl;
 		}
 		else
@@ -116,10 +119,12 @@ void addCartMenu(vector <Cart> t, const vector <Product>& l)
 		Sleep(750);
 	}
 }
-bool deleteCartItem(vector<Cart> c, const vector<Product>& l)
+bool deleteCartItem(vector<Cart>& c, const vector<Product>& l)
 {
 	string proCode;
 	cout << "ENTER THE PRODUCT CODE WANT TO DELETE: ";
+	fflush(stdin);
+	cin.ignore();
 	getline(cin, proCode);
 	size_t size = c.size();
 	for (size_t i = 0; i < size; i++)
@@ -134,10 +139,12 @@ bool deleteCartItem(vector<Cart> c, const vector<Product>& l)
 	Sleep(750);
 	return 0;
 }
-bool editCartItem(vector<Cart> c, const vector<Product>& l)
+bool editCartItem(vector<Cart>& c, const vector<Product>& l)
 {
 	string proCode;
 	cout << "ENTER THE PRODUCT CODE WANT TO EDIT: ";
+	fflush(stdin);
+	cin.ignore();
 	getline(cin, proCode);
 	size_t size = c.size();
 	for (size_t i = 0; i < size; i++)
@@ -153,11 +160,14 @@ bool editCartItem(vector<Cart> c, const vector<Product>& l)
 	Sleep(750);
 	return 0;
 }
-void displayCart(vector<Cart> c)
+int displayCart(vector<Cart> c)
 {
 
 	if (c.empty())
+	{
 		cout << "CART IS EMPTY" << endl;
+		return 0;
+	}
 	else
 	{
 		cout << setfill('*');
@@ -168,33 +178,45 @@ void displayCart(vector<Cart> c)
 		cout << "\t\t+--------------+---------------------------------------+----------+--------+-----------+" << endl;
 		for (vector <Cart>::const_iterator i = c.begin(); i != c.end(); i.operator++())
 		{
-			cout << "\t\t|   " << setw(11) << left << (*i).getItem().getProCode() << "|   " << setw(36) << left << (*i).getItem().getProName() << "|  ";
-			cout << setw(10) << left << (*i).getQuantity() << "| " << setw(7) << left << (*i).getItem().getUnit() << "|";
-			cout << setw(9) << left << (*i).getItem().getPrice() << "|" << endl;
+			cout << "\t\t|   " << setw(11) << left << (*i).getItem().getProCode() << "|   " << setw(36) << left << (*i).getItem().getProName() << "| ";
+			cout << setw(9) << left << (*i).getQuantity() << "| " << setw(7) << left << (*i).getItem().getUnit() << "|";
+			cout << setw(11) << left << (*i).getItem().getPrice() << "|" << endl;
 		}
-		cout << "\t\t+----------------+------------------------------------------+-----------------+--------+" << endl;
+		cout << "\t\t+--------------+---------------------------------------+----------+--------+-----------+" << endl;
 		//   123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
 		//   0        1         2         3         4         5         6         7         8         9         10        11        12
 	}
+	return 1;
 }
-bool addBill(vector <Cart> t, vector <Cart> l, const string& proCode)
+bool addBill(vector <Cart>& t, vector <Cart>& l, const string& proCode)
 {
 	size_t size = l.size();
 	for (int i = 0; i < size; i++)
-		if (l[i].getProCode() == proCode)
+		if ((l[i]).getItem().getProCode() == proCode)
 		{
 			t.push_back(l[i]);
 			l.erase(l.begin() + i);
 			return 1;
 		}
+	//for (vector <Cart>::const_iterator i = l.begin(); i != l.end(); i.operator++())
+	//{
+	//	if ((*i).getProCode() == proCode)
+	//	{
+	//		t.push_back(*i);
+	//		l.erase(i);
+	//		return 1;
+	//	}
+	//}
 	return 0;
 }
-void addBillMenu(vector<Bill> b, vector <Cart> t)
+void addBillMenu(vector<Bill>& b, vector <Cart>& t)
 {
 	size_t size = b.size();
 	vector<Cart> c;
 	string proCode;
 	cout << "Enter product code add to bill: ";
+	fflush(stdin);
+	cin.ignore();
 	getline(cin, proCode);
 	if (!addBill(c, t, proCode))
 	{
@@ -210,9 +232,10 @@ void addBillMenu(vector<Bill> b, vector <Cart> t)
 }
 void displayBill(vector<Bill> b, Customer c)
 {
+	system("cls");
 	size_t size = b.size();
 	cout << "Order details" << endl << endl << endl;
-	cout << "Order ID: " << b[size].getBillCode();
+	cout << "Order ID: " << b[size - 1].getBillCode() << endl;
 	cout << c;
 	cout << setfill('*');
 	cout << setw(69) << right << "Product list in the bill" << setw(51) << "*" << endl;
@@ -220,22 +243,22 @@ void displayBill(vector<Bill> b, Customer c)
 	cout << "\t\t+--------------+---------------------------------------+----------+--------+-----------+" << endl;
 	cout << "\t\t| PRODUCT CODE |              PRODUCT NAME             | QUANTITY |  UNIT  |   PRICE   |" << endl;
 	cout << "\t\t+--------------+---------------------------------------+----------+--------+-----------+" << endl;
-	for (vector <Cart>::const_iterator i = b[size].getCart().begin(); i != b[size].getCart().end(); i.operator++())
+	for (vector <Cart>::const_iterator i = (b[size - 1].listProduct).begin(); i != (b[size - 1].listProduct).end(); i.operator++())
 	{
-		cout << "\t\t|   " << setw(11) << left << (*i).getItem().getProCode() << "|   " << setw(36) << left << (*i).getItem().getProName() << "|  ";
-		cout << setw(10) << left << (*i).getQuantity() << "| " << setw(7) << left << (*i).getItem().getUnit() << "|";
-		cout << setw(9) << left << (*i).getItem().getPrice() << "|" << endl;
+		cout << "\t\t|   " << setw(11) << left << (*i).getItem().getProCode() << "|   " << setw(36) << left << (*i).getItem().getProName() << "| ";
+		cout << setw(9) << left << (*i).getQuantity() << "| " << setw(7) << left << (*i).getItem().getUnit() << "|";
+		cout << setw(11) << left << (*i).getItem().getPrice() << "|" << endl;
 	}
 	cout << "\t\t+----------------+------------------------------------------+-----------------+--------+" << endl;
 	//   123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
 	//   0        1         2         3         4         5         6         7         8         9         10        11        12
-	cout << setw(100) << right << "Subtotal: " << b[size].getTotal() << endl;
+	cout << setw(100) << right << "Subtotal: " << b[size - 1].getTotal() << endl;
 	cout << setw(100) << right << "Ship Fee: " << 15000 << endl;
-	cout << setw(100) << right << "Order total: " << b[size].getTotal() + 15000 << endl;
-	cout << "Order date: " << b[size].getOrderDate() << endl;
-	cout << "Received date: " << b[size].getReceivedDate() << endl;
+	cout << setw(100) << right << "Order total: " << b[size - 1].getTotal() + 15000 << endl;
+	cout << "Order date: " << b[size - 1].getOrderDate() << endl;
+	cout << "Received date: " << b[size - 1].getReceivedDate() << endl;
 }
-void inputCustomer(Customer P)
+void inputCustomer(Customer& P)
 {
 	string s;
 	do
@@ -244,38 +267,44 @@ void inputCustomer(Customer P)
 		cout << "INFORMATION" << endl;
 		cout << "What your first name?" << endl;
 		fflush(stdin);
-		cin.ignore();
+		//cin.ignore();
 		getline(cin, s);
 		P.setFN(s);
 		cout << "What your last name?" << endl;
 		fflush(stdin);
-		cin.ignore();
+		//cin.ignore();
 		getline(cin, s);
 		P.setLN(s);
 		cout << "Male or female" << endl;
 		fflush(stdin);
-		cin.ignore();
+		//cin.ignore();
 		getline(cin, s);
 		P.setSex(s);
 		cout << "Your phone number?" << endl;
 		fflush(stdin);
-		cin.ignore();
+		//cin.ignore();
 		getline(cin, s);
 		P.setPN(s);
 		cout << "What is your address?" << endl;
 		fflush(stdin);
-		cin.ignore();
+		//cin.ignore();
 		getline(cin, s);
 		P.setAdd(s);
 	} while (!P.getCheck());
 }
-void mainMenu(vector<Bill> b, vector <Cart>& c, const vector <Product>& l, Customer cus)
+void mainMenu(vector<Bill>& b, vector <Cart>& c, const vector <Product>& l, Customer cus)
 {
 	system("CLS");
 	int key, mm;
 	bool flag;
 	while (1)
 	{
+		system("cls");
+		cout << "XXX STORE\n";
+		cout << "Enter (1) to enter XXX store\n";
+		cout << "Enter (2) to view your cart\n";
+		cout << "Enter (3) to pay your card\n";
+		fflush(stdin);
 		cin >> key;
 		switch (key)
 		{
@@ -287,12 +316,9 @@ void mainMenu(vector<Bill> b, vector <Cart>& c, const vector <Product>& l, Custo
 				system("CLS");
 				displayProduct(l);
 				addCartMenu(c, l);
-				cout << "Enter (1) to buy another Product or Enter (0) to End";
+				cout << "Enter (1) to buy another Product or Enter (0) to End ";
 				cin >> mm;
-				if (mm != 1)
-				{
-					flag = 0;
-				}
+				flag = mm;
 			}
 			break;
 		}
@@ -304,14 +330,14 @@ void mainMenu(vector<Bill> b, vector <Cart>& c, const vector <Product>& l, Custo
 				system("CLS");
 				displayCart(c);
 				int p;
-				cout << "ENTER 'D' TO DELETE A PRODUCT IN THE CART \nENTER 'E' TO CHANGE QUANTITY A PRODUCT IN THE CART " << endl;
+				cout << "ENTER (1) TO DELETE A PRODUCT IN THE CART \nENTER (2) TO CHANGE QUANTITY A PRODUCT IN THE CART\nEnter (0) to back to Main menu " << endl;
 				cin >> p;
-				if (p == 'D')
+				if (p == 1)
 					deleteCartItem(c, l);
-				else if (p == 'E')
+				else if (p == 2)
 					editCartItem(c, l);
-				else
-					break;
+				else if (p == 0)
+					flag = 0;
 			}
 			break;
 		}
@@ -320,31 +346,41 @@ void mainMenu(vector<Bill> b, vector <Cart>& c, const vector <Product>& l, Custo
 			flag = 1;
 			while (flag)
 			{
-				system("CLS");
-				displayCart(c);
-				addBillMenu(b, c);
-				cout << "Do you want to continute?(y/n) ";
-				int k;
-				cin >> k;
-				if (k == 'y')
-					flag = 1;
-				else
+				int f = 1;
+				while (f)
 				{
 					system("CLS");
-					displayCart((*b.end()).getCart());
-					cout << "Do you want to pay?(y/n) ";
-					cin >> k;
-					if (k == 'y')
+					mm = displayCart(c);
+					if (mm)
 					{
-						displayBill(b, cus);
-						break;
+						addBillMenu(b, c);
+						cout << "Enter (1) to buy another Product or Enter (0) to End ";
+						cin >> mm;
+						f = mm;
 					}
 					else
-						b.erase(b.end());
+						f = mm;
 				}
+				system("cls");
+				cout << "Do you want to continute?\n(1) to yes, (0) to no ";
+				int k;
+				cin >> k;
+				flag = k;
+				if (flag)
+				{
+					displayBill(b, cus);
+					system("pause");
+					break;
+				}
+				else
+					b.erase(b.end());
 			}
+			break;
+		}
 		default:
+		{
 			cout << "Invalid Code!! Enter Code again, please!!";
+			Sleep(3000);
 		}
 		}
 	}

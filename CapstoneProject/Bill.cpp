@@ -17,16 +17,11 @@ Bill::Bill(vector<Cart> lP) :orderDate(), receivedDate()
 	receivedDate.setY(buf.tm_year + 1900);
 }
 
-vector<Cart> Bill::getCart() const
-{
-	return this->listProduct;
-}
-
 double Bill::getTotal() const
 {
 	double total = 0;
 	for (vector <Cart>::const_iterator i = listProduct.begin(); i != listProduct.end(); i.operator++())
-		total += (*i).getPrice() * (*i).getQuantity();
+		total += (*i).getItem().getPrice() * (*i).getQuantity();
 	return total;
 }
 

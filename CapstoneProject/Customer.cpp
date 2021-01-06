@@ -41,8 +41,13 @@ string Customer::getAdd() const
 	return address;
 }
 
-bool Customer::getCheck() const
+bool Customer::getCheck()
 {
+
+	if (firstName == "" || phoneNumber == "" || address == "")
+		check = 0;
+	else
+		check = 1;
 	return check;
 }
 

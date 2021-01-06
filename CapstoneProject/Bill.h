@@ -9,12 +9,11 @@ class Bill :public Date
 {
 protected:
 	time_t billCode;
-	vector<Cart> listProduct;
 	Date orderDate;
 	Date receivedDate;
 public:
+	vector<Cart> listProduct;
 	Bill(vector<Cart> lP);
-	vector<Cart> getCart() const;
 	double getTotal() const;
 	time_t getBillCode() const;
 	Date getOrderDate() const;

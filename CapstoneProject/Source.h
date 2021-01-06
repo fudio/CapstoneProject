@@ -17,16 +17,24 @@ void setFont(const int& y, const string& front);	//Set font for console
 
 void displayProduct(const vector <Product>& l);
 
-bool addCart(vector <Cart> t, const vector <Product>& l, const string& proCode, const int& quantity);
+bool addCart(vector <Cart>& t, const vector <Product>& l, const string& proCode, const int& quantity);
 
-void addCartMenu(vector <Cart> t, const vector <Product>& l);
+void addCartMenu(vector <Cart>& t, const vector <Product>& l);
 
-bool deleteCartItem(vector<Cart> c, const vector<Product>& l);
+bool deleteCartItem(vector<Cart>& c, const vector<Product>& l);
 
-bool editCartItem(vector<Cart> c, const vector<Product>& l);
+bool editCartItem(vector<Cart>& c, const vector<Product>& l);
 
-void displayCart(vector<Cart> c);
+bool editCartItem(vector<Cart>& c, const vector<Product>& l);
 
-void inputCustomer(Customer P);
+int displayCart(vector<Cart> c);
 
-void mainMenu(vector <Cart>& c, const vector <Product>& l);
+bool addBill(vector <Cart>& t, vector <Cart>& l, const string& proCode);
+
+void addBillMenu(vector<Bill>& b, vector <Cart>& t);
+
+void displayBill(vector<Bill> b, Customer c);
+
+void inputCustomer(Customer& P);
+
+void mainMenu(vector<Bill>& b, vector <Cart>& c, const vector <Product>& l, Customer cus);
