@@ -14,6 +14,7 @@ protected:
 public:
 	vector<Cart> listProduct;
 	Bill(vector<Cart> lP);
+	Bill();
 	double getTotal() const;
 	time_t getBillCode() const;
 	Date getOrderDate() const;

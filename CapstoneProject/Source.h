@@ -15,7 +15,7 @@ bool readFile(vector <Product>& l);
 
 void setFont(const int& y, const string& front);	//Set font for console
 
-void displayProduct(const vector <Product>& l);
+bool displayProduct(const vector <Product>& l);
 
 bool addCart(vector <Cart>& t, const vector <Product>& l, const string& proCode, const int& quantity);
 
@@ -27,14 +27,18 @@ bool editCartItem(vector<Cart>& c, const vector<Product>& l);
 
 bool editCartItem(vector<Cart>& c, const vector<Product>& l);
 
-int displayCart(vector<Cart> c);
+bool displayCart(vector<Cart> c);
 
 bool addBill(vector <Cart>& t, vector <Cart>& l, const string& proCode);
 
-void addBillMenu(vector<Bill>& b, vector <Cart>& t);
+bool addBill_(vector <Cart>& t, vector <Cart>& l, const string& proCode);
 
-void displayBill(vector<Bill> b, Customer c);
+void addBillMenu(vector<Bill>& b, vector <Cart>& t, size_t size);
+
+bool displayBill(vector<Bill> b, Customer c);
 
 void inputCustomer(Customer& P);
 
-void mainMenu(vector<Bill>& b, vector <Cart>& c, const vector <Product>& l, Customer cus);
+void output(vector<Product>p);
+
+void mainMenu(vector<Bill>& b, vector <Cart>& c, vector <Product>& l, Customer cus);

@@ -1,0 +1,100 @@
+Product code: 101
+Product name: Pepsi
+Product price: 1.8
+Unit of product: Cans
+
+Product code: 102
+Product name: CocaCola
+Product price: 1.8
+Unit of product: Cans
+
+Product code: 103
+Product name: Monster
+Product price: 3
+Unit of product: Cans
+
+Product code: 201
+Product name: CafeG7
+Product price: 8
+Unit of product: Package
+
+Product code: 202
+Product name: NesCafe
+Product price: 8
+Unit of product: Package
+
+Product code: 203
+Product name: Highland
+Product price: 3
+Unit of product: Cup
+
+Product code: 301
+Product name: Milktea
+Product price: 2.5
+Unit of product: Cup
+
+Product code: 401
+Product name: OrangeJuiceCP
+Product price: 2.5
+Unit of product: Bottle
+
+Product code: 402
+Product name: WaterMelonCP
+Product price: 2.5
+Unit of product: Bottle
+
+Product code: 501
+Product name: Beer333
+Product price: 5.5
+Unit of product: Cans
+
+Product code: 502
+Product name: BeerSaiGon
+Product price: 5.6
+Unit of product: Cans
+
+Product code: 601
+Product name: WineCP
+Product price: 10
+Unit of product: Bottle
+
+Product code: 602
+Product name: Whiskey
+Product price: 12.3
+Unit of product: Bottle
+
+Product code: 701
+Product name: IceCream
+Product price: 1
+Unit of product: Package
+
+Product code: 801
+Product name: SwallowWater
+Product price: 10
+Unit of product: Pot
+
+Product code: 802
+Product name: Nests
+Product price: 20
+Unit of product: Gram
+
+Product code: 901
+Product name: HaoHao
+Product price: 2
+Unit of product: Package
+
+Product code: 902
+Product name: Pho
+Product price: 2.2
+Unit of product: Package
+
+Product code: 111
+Product name: Chocolate
+Product price: 2
+Unit of product: Package
+
+Product code: 112
+Product name: Snack
+Product price: 0.8
+Unit of product: Package
+

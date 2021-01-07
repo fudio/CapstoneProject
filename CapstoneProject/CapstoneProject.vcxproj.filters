@@ -30,6 +30,9 @@
     <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Product.cpp">
@@ -56,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Input.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="producct.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
