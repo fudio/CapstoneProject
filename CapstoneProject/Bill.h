@@ -12,9 +12,9 @@ protected:
 	Date orderDate;
 	Date receivedDate;
 public:
-	vector<Cart> listProduct;
-	Bill(vector<Cart> lP);
-	Bill();
+	std::vector<Cart> listProduct;
+	Bill(std::vector<Cart> lP);
+	Bill(time_t billCode);
 	double getTotal() const;
 	time_t getBillCode() const;
 	Date getOrderDate() const;

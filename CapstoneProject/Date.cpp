@@ -22,7 +22,7 @@ void Date::setY(int y)
 	year = y;
 }
 
-ostream& operator<<(ostream& out, const Date& dt)
+std::ostream& operator<<(std::ostream& out, const Date& dt)
 {
 	out << dt.day << "/" << dt.month << "/" << dt.year;
 	return out;

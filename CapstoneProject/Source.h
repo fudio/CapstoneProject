@@ -8,37 +8,52 @@
 #include<iomanip>
 #include<cwchar>
 #include<Windows.h>
+#include<sstream>
+#include<filesystem>
 
-bool check(const vector <Product>& l, const Product& p);	//Ki?m tra trùng l?p mã s?n ph?m
 
-bool readFile(vector <Product>& l);
+namespace fs = std::filesystem;
 
-void setFont(const int& y, const string& front);	//Set font for console
+bool check(const std::vector <Product>& l, const Product& p);	//Ki?m tra trùng l?p mã s?n ph?m
 
-bool displayProduct(const vector <Product>& l);
+bool readFile(std::vector <Product>& l);
 
-bool addCart(vector <Cart>& t, const vector <Product>& l, const string& proCode, const int& quantity);
+void setFont(const int& y, const std::string& front);	//Set font for console
 
-void addCartMenu(vector <Cart>& t, const vector <Product>& l);
+bool displayProduct(const std::vector <Product>& l);
 
-bool deleteCartItem(vector<Cart>& c, const vector<Product>& l);
+bool addCart(std::vector <Cart>& t, const std::vector <Product>& l, const std::string& proCode, const int& quantity);
 
-bool editCartItem(vector<Cart>& c, const vector<Product>& l);
+void addCartMenu(std::vector <Cart>& t, const std::vector <Product>& l);
 
-bool editCartItem(vector<Cart>& c, const vector<Product>& l);
+bool deleteCartItem(std::vector<Cart>& c, const std::vector<Product>& l);
 
-bool displayCart(vector<Cart> c);
+bool editCartItem(std::vector<Cart>& c, const std::vector<Product>& l);
 
-bool addBill(vector <Cart>& t, vector <Cart>& l, const string& proCode);
+bool editCartItem(std::vector<Cart>& c, const std::vector<Product>& l);
 
-bool addBill_(vector <Cart>& t, vector <Cart>& l, const string& proCode);
+bool displayCart(std::vector<Cart> c);
 
-void addBillMenu(vector<Bill>& b, vector <Cart>& t, size_t size);
+bool addBill(std::vector <Cart>& t, std::vector <Cart>& l, const std::string& proCode);
 
-bool displayBill(vector<Bill> b, Customer c);
+bool addBill_(std::vector <Cart>& t, std::vector <Cart>& l, const std::string& proCode);
+
+void addBillMenu(std::vector<Bill>& b, std::vector <Cart>& t, size_t size);
+
+bool displayBill(std::vector<Bill> b, Customer c);
 
 void inputCustomer(Customer& P);
 
-void output(vector<Product>p);
+void output(std::vector<Product> p);
 
-void mainMenu(vector<Bill>& b, vector <Cart>& c, vector <Product>& l, Customer cus);
+template<typename T>
+std::string toString(const T& t);
+
+template<typename T>
+T fromString(const std::string& s);
+
+void output(std::vector<Bill> b);
+
+void input(std::vector<Bill>& b);
+
+void mainMenu(std::vector<Bill>& b, std::vector <Cart>& c, std::vector <Product>& l, Customer cus);

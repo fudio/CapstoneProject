@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-using namespace std;
+//using namespace std;
 
 class Date
 {
@@ -11,6 +11,6 @@ public:
 	void setD(int d);
 	void setM(int m);
 	void setY(int y);
-	friend ostream& operator<<(ostream& out, const Date& dt);
+	friend std::ostream& operator<<(std::ostream& out, const Date& dt);
 };
 
