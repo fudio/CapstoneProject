@@ -29,7 +29,7 @@ bool readFile(vector <Product>& l)
 			l.push_back(p);
 		else
 		{
-			cout << "The entered data has a match" << endl;
+			cout << "THE ENTERED HAS A MATCH" << endl;
 			l.erase(l.begin(), l.end());
 			return 0;
 		}
@@ -54,7 +54,7 @@ bool displayProduct(const vector <Product>& l)
 {
 	if (l.empty())
 	{
-		cout << "\t\tNo product" << endl;
+		cout << "\t\tPRODUCT LIST IS EMPTY" << endl;
 		return 0;
 	}
 	cout << setw(70) << right << "CHOOSE PRODUCT ADD TO CART" << setw(50) << " " << endl;
@@ -105,18 +105,18 @@ void addCartMenu(vector <Cart>& t, const vector <Product>& l)
 		if (!addCart(t, l, proCode, quantity))
 		{
 			system("cls");
-			cout << "\t\tInvalid product code!!!" << endl;
+			cout << "\t\tINVALID PRODUCT CODE!!!" << endl;
 		}
 		else
 		{
 			system("cls");
-			cout << "\t\tThe product is added successfully!" << endl;
+			cout << "\t\tThe PRODUCT IS ADDED SUCCESSFULLY" << endl;
 			Sleep(750);
 		}
 	}
 	else
 	{
-		cout << "\t\tInvalid quantity";
+		cout << "\t\tInvalid quantity" << endl;
 		Sleep(750);
 	}
 }
@@ -249,7 +249,7 @@ void addBillMenu(vector<Bill>& b, vector <Cart>& t, size_t size)
 		{
 			b.push_back(Bill(c));
 			system("cls");
-			cout << "\t\tThe product is added successfully" << endl;
+			cout << "\t\tThe PRODUCT IS ADDED SUCCESSFULLY" << endl;
 			Sleep(750);
 		}
 	}
@@ -267,7 +267,7 @@ void addBillMenu(vector<Bill>& b, vector <Cart>& t, size_t size)
 		else
 		{
 			system("cls");
-			cout << "\t\tThe product is added successfully" << endl;
+			cout << "\t\tThe PRODUCT IS ADDED SUCCESSFULLY" << endl;
 			Sleep(750);
 		}
 	}
@@ -278,8 +278,8 @@ bool displayBill(vector<Bill> b, Customer c)
 		return 0;
 	system("cls");
 	size_t size = b.size();
-	cout << "Order details" << endl << endl << endl;
-	cout << "Order ID: " << b[size - 1].getBillCode() << endl;
+	cout << "\t\tOrder details" << endl << endl << endl;
+	cout << "\t\tOrder ID: " << b[size - 1].getBillCode() << endl;
 	cout << c;
 	cout << setw(69) << right << "Product list in the bill" << setw(51) << " " << endl;
 	cout << setfill(' ');
@@ -298,8 +298,8 @@ bool displayBill(vector<Bill> b, Customer c)
 	cout << setw(100) << right << "Subtotal: " << b[size - 1].getTotal() << endl;
 	cout << setw(100) << right << "Ship Fee: " << 0.5 << endl;
 	cout << setw(100) << right << "Order total: " << b[size - 1].getTotal() + 0.5 << endl;
-	cout << "Order date: " << b[size - 1].getOrderDate() << endl;
-	cout << "Received date: " << b[size - 1].getReceivedDate() << endl;
+	cout << "\t\tOrder date: " << b[size - 1].getOrderDate() << endl;
+	cout << "\t\tReceived date: " << b[size - 1].getReceivedDate() << endl;
 	return 1;
 }
 void inputCustomer(Customer& P)
@@ -383,12 +383,14 @@ void mainMenu(vector<Bill>& b, vector <Cart>& c, vector <Product>& l, Customer c
 			while (flag)
 			{
 				system("CLS");
-				displayProduct(l);
-				addCartMenu(c, l);
-				cout << "\t\tEnter (1) to buy another Product or Enter (0) to End ";
-				cout << "\n\t\tInput your code: ";
-				cin >> mm;
-				flag = mm;
+				if (displayProduct(l))
+				{
+					addCartMenu(c, l);
+					cout << "\t\tEnter (1) to buy another product or enter (0) to End ";
+					cout << "\n\t\tInput your code: ";
+					cin >> mm;
+					flag = mm;
+				}
 			}
 			break;
 		}
@@ -434,7 +436,7 @@ void mainMenu(vector<Bill>& b, vector <Cart>& c, vector <Product>& l, Customer c
 					if (mm)
 					{
 						addBillMenu(b, c, size);
-						cout << "\t\tEnter (1) to buy another Product or Enter (0) to End ";
+						cout << "\t\tEnter (1) to buy another Product or enter (0) to end ";
 						cout << "\n\t\tInput your code: ";
 						cin >> mm;
 						f = mm;
@@ -462,7 +464,7 @@ void mainMenu(vector<Bill>& b, vector <Cart>& c, vector <Product>& l, Customer c
 				}
 				else
 				{
-					cout << "\t\tNO BILL TO PAY!!!";
+					cout << "\n\t\tNO BILL TO PAY!!!";
 					Sleep(2000);
 					break;
 				}

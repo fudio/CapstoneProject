@@ -87,8 +87,8 @@ void Customer::setAdd(string add)
 
 ostream& operator<<(ostream& out, const Customer& c)
 {
-	out << "Full name: " << c.firstName + " " + c.lastName << endl;
-	out << "Phone number: " << c.phoneNumber << endl;
-	out << "Address: " << c.address << endl;
+	out << "\t\tFull name: " << c.firstName + " " + c.lastName << endl;
+	out << "\t\tPhone number: " << c.phoneNumber << endl;
+	out << "\t\tAddress: " << c.address << endl;
 	return out;
 }
