@@ -1,6 +1,6 @@
 #include "Customer.h"
 
-Customer::Customer(string fN, string lN, string sex, string pN, string add)
+Customer::Customer(std::string fN, std::string lN, std::string sex, std::string pN, std::string add)
 {
 	if (fN == "" || pN == "" || add == "")
 		check = 0;
@@ -16,27 +16,27 @@ Customer::Customer(string fN, string lN, string sex, string pN, string add)
 }
 
 
-string Customer::getFN() const
+std::string Customer::getFN() const
 {
 	return firstName;
 }
 
-string Customer::getLN() const
+std::string Customer::getLN() const
 {
 	return lastName;
 }
 
-string Customer::getSex() const
+std::string Customer::getSex() const
 {
 	return sex;
 }
 
-string Customer::getPN() const
+std::string Customer::getPN() const
 {
 	return phoneNumber;
 }
 
-string Customer::getAdd() const
+std::string Customer::getAdd() const
 {
 	return address;
 }
@@ -51,7 +51,7 @@ bool Customer::getCheck()
 	return check;
 }
 
-void Customer::setFN(string fN)
+void Customer::setFN(std::string fN)
 {
 	if (fN == "")
 		check = 0;
@@ -59,17 +59,17 @@ void Customer::setFN(string fN)
 		firstName = fN;
 }
 
-void Customer::setLN(string lN)
+void Customer::setLN(std::string lN)
 {
 	lastName = lN;
 }
 
-void Customer::setSex(string sex)
+void Customer::setSex(std::string sex)
 {
 	this->sex = sex;
 }
 
-void Customer::setPN(string pN)
+void Customer::setPN(std::string pN)
 {
 	if (pN == "")
 		check = 0;
@@ -77,7 +77,7 @@ void Customer::setPN(string pN)
 		phoneNumber = pN;
 }
 
-void Customer::setAdd(string add)
+void Customer::setAdd(std::string add)
 {
 	if (add == "")
 		check = 0;
@@ -85,10 +85,10 @@ void Customer::setAdd(string add)
 		address = add;
 }
 
-ostream& operator<<(ostream& out, const Customer& c)
+std::ostream& operator<<(std::ostream& out, const Customer& c)
 {
-	out << "\t\tFull name: " << c.firstName + " " + c.lastName << endl;
-	out << "\t\tPhone number: " << c.phoneNumber << endl;
-	out << "\t\tAddress: " << c.address << endl;
+	out << "\t\tFull name: " << c.firstName + " " + c.lastName << std::endl;
+	out << "\t\tPhone number: " << c.phoneNumber << std::endl;
+	out << "\t\tAddress: " << c.address << std::endl;
 	return out;
 }

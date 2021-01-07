@@ -7,6 +7,7 @@ class Cart :public Product
 	long int quantity;
 public:
 	Cart(Product, int quantity = 0);
+	Cart(int quantity = 0);
 	long int getQuantity() const;
 	Product getItem() const;
 	void setQuantity(const long int&);

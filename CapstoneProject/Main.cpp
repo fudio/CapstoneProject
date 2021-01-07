@@ -2,9 +2,9 @@
 
 int main()
 {
-	vector<Bill> b;
-	vector <Cart> c;
-	vector <Product> p;
+	std::vector<Bill> b;
+	std::vector <Cart> c;
+	std::vector <Product> p;
 	Customer cus;
 	readFile(p);
 	inputCustomer(cus);

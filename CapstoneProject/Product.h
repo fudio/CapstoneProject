@@ -1,24 +1,24 @@
 ﻿#pragma once
 #include<iostream>
 #include<string>
-using namespace std;
+//using namespace std;
 
 class Product
 {
 protected:
-	string proCode;		//Mã sản phẩm
-	string proName;		//Tên sản phẩm
+	std::string proCode;		//Mã sản phẩm
+	std::string proName;		//Tên sản phẩm
 	double price;		//Giá
-	string unit;		//Đơn vị tính của sản phẩm
+	std::string unit;		//Đơn vị tính của sản phẩm
 public:
-	Product(string proCode = "", string proName = "", double price = 0, string unit = "");
-	string getProCode() const;
-	string getProName() const;
+	Product(std::string proCode = "", std::string proName = "", double price = 0, std::string unit = "");
+	std::string getProCode() const;
+	std::string getProName() const;
 	double getPrice() const;
-	string getUnit() const;
-	void setProCode(const string&);
-	void setProName(const string&);
+	std::string getUnit() const;
+	void setProCode(const std::string&);
+	void setProName(const std::string&);
 	void setPrice(const double&);
-	void setUnit(const string&);
-	friend ostream& operator<<(ostream&, const Product&);
+	void setUnit(const std::string&);
+	friend std::ostream& operator<<(std::ostream&, const Product&);
 };

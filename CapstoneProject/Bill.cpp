@@ -1,6 +1,6 @@
 #include "Bill.h"
 
-Bill::Bill(vector<Cart> lP) :orderDate(), receivedDate()
+Bill::Bill(std::vector<Cart> lP) :orderDate(), receivedDate()
 {
 	listProduct = lP;
 	struct tm buf;
@@ -17,11 +17,12 @@ Bill::Bill(vector<Cart> lP) :orderDate(), receivedDate()
 	receivedDate.setY(buf.tm_year + 1900);
 }
 
-Bill::Bill()
+Bill::Bill(time_t billCode)
 {
+
+	this->billCode = billCode;
 	struct tm buf;
-	time_t now = time(0);
-	billCode = now;
+	time_t now = billCode;
 	localtime_s(&buf, &now);
 	orderDate.setD(buf.tm_mday);
 	orderDate.setM(buf.tm_mon + 1);
@@ -36,7 +37,7 @@ Bill::Bill()
 double Bill::getTotal() const
 {
 	double total = 0;
-	for (vector <Cart>::const_iterator i = listProduct.begin(); i != listProduct.end(); i.operator++())
+	for (std::vector <Cart>::const_iterator i = listProduct.begin(); i != listProduct.end(); i.operator++())
 		total += (*i).getItem().getPrice() * (*i).getQuantity();
 	return total;
 }

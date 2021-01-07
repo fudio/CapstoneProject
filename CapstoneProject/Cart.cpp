@@ -6,6 +6,11 @@ Cart::Cart(Product item, int quantity)
 	this->quantity = quantity;
 }
 
+Cart::Cart(int quantity):item()
+{
+	this->quantity = quantity;
+}
+
 long int Cart::getQuantity() const
 {
 	return quantity;
